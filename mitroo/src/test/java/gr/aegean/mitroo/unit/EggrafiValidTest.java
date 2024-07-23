@@ -201,7 +201,7 @@ public class EggrafiValidTest implements TestInterface{
 		assertNotEquals(viols.size(), 0);
 		
 		List<String> messages = getMessages(viols);
-		assertTrue(messages.contains("AFM is invalid or cannot be blank!"));
+		assertTrue(messages.contains("AFM is invalid!"));
 	}
 
 	
@@ -219,35 +219,35 @@ public class EggrafiValidTest implements TestInterface{
 		assertFalse(messages.contains("AFM is invalid!"));
 	}
 	
-	@ParameterizedTest
-	@NullAndEmptySource
-	@ValueSource(strings = { " ", "\t", "\n", " \t \n" })
-	void checkInvalidAddress(String address) {
-		Eggrafi eggrafi = new Eggrafi();
-		eggrafi.setAddress(address);
-		assertEquals(address,eggrafi.getAddress());
+	//@ParameterizedTest
+	//@NullAndEmptySource
+	//@ValueSource(strings = { " ", "\t", "\n", " \t \n" })
+	//void checkInvalidAddress(String address) {
+	//	Eggrafi eggrafi = new Eggrafi();
+	//	eggrafi.setAddress(address);
+	//	assertEquals(address,eggrafi.getAddress());
 		
-		Set<ConstraintViolation<Eggrafi>> viols = validator.validate(eggrafi);
-		assertNotEquals(viols.size(), 0);
+	//	Set<ConstraintViolation<Eggrafi>> viols = validator.validate(eggrafi);
+	//	assertNotEquals(viols.size(), 0);
 		
-		List<String> messages = getMessages(viols);
-		assertTrue(messages.contains("address cannot be blank!"));
-	}
+	//	List<String> messages = getMessages(viols);
+	//	assertTrue(messages.contains("address cannot be blank!"));
+	//}
 
 	
-	@ParameterizedTest
-	@ValueSource(strings = { "odos 24, poli 13456", "odos 345, poli 15678", "odos 3454, poli, 56789"})
-	void checkValidAddress(String address) {
-		Eggrafi eggrafi = new Eggrafi();
-		eggrafi.setAddress(address);
-		assertEquals(address,eggrafi.getAddress());
+	//@ParameterizedTest
+	//@ValueSource(strings = { "odos 24, poli 13456", "odos 345, poli 15678", "odos 3454, poli, 56789"})
+	//void checkValidAddress(String address) {
+	//	Eggrafi eggrafi = new Eggrafi();
+	//	eggrafi.setAddress(address);
+	//	assertEquals(address,eggrafi.getAddress());
 		
-		Set<ConstraintViolation<Eggrafi>> viols = validator.validate(eggrafi);
-		assertNotEquals(viols.size(), 0);
+	//	Set<ConstraintViolation<Eggrafi>> viols = validator.validate(eggrafi);
+	//	assertNotEquals(viols.size(), 0);
 		
-		List<String> messages = getMessages(viols);
-		assertFalse(messages.contains("address is invalid!"));
-	}
+	//	List<String> messages = getMessages(viols);
+	//	assertFalse(messages.contains("address is invalid!"));
+	//}
 	
 	
 

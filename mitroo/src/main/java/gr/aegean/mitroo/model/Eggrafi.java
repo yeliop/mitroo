@@ -32,10 +32,11 @@ public class Eggrafi {
 	@NotBlank(message = "Date of Birth cannot be blank!")
 	@Pattern(
 			regexp = "^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\\d{4}$", 
-			message = "AT is invalid"
+			message = "Date of Birth is invalid"
 		)
 	private String dob = null;
-	@Pattern(regexp = "\\d{9}")
+	@Pattern(regexp = "\\d{9}",
+			message = "AFM is invalid")
 	private String afm = null;
 	private String address = null;
 	

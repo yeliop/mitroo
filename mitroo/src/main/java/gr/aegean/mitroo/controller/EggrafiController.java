@@ -65,7 +65,7 @@ public class EggrafiController {
 	@PostMapping(consumes = {"application/json", "application/xml"})
 	ResponseEntity<?> insertEggrafi(@Valid @RequestBody Eggrafi eggrafi) {
 		if (repo.findById(eggrafi.getAt()).isPresent())
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Eggrafi with given ST already exists!");
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Eggrafi with given AT already exists!");
 		else {
 			repo.save(eggrafi);
 			try {
